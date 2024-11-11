@@ -113,3 +113,4 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "java",
   command = "nnoremap <F2> :w <bar> exec '!java -cp ./bin '.shellescape('%:r')<CR>"
 })
+vim.api.nvim_set_keymap('n', '<leader>fa', ':lua require("telescope.builtin").live_grep({ default_text = vim.fn.expand("<cword>") })<CR>', { noremap = true, silent = true })
