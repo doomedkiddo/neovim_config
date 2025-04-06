@@ -37,8 +37,6 @@ vim.api.nvim_set_keymap('n', '<Leader>gr', '<C-T>', { noremap = true, silent = t
 vim.api.nvim_set_keymap('n', '<Leader>1', '^', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>2', '$', { noremap = true, silent = true })
 
--- 快速切换C H源文件
-vim.api.nvim_set_keymap('n', '<Leader>a', ':A<CR>', { noremap = true, silent = true })
 
 -- 设置快捷键gs遍历各分割窗口。快捷键速记法：goto the next spilt window
 vim.api.nvim_set_keymap('n', '<Leader>gg', '<C-W><C-W>', { noremap = true, silent = true })
@@ -114,12 +112,3 @@ vim.api.nvim_create_autocmd("FileType", {
   command = "nnoremap <F2> :w <bar> exec '!java -cp ./bin '.shellescape('%:r')<CR>"
 })
 vim.api.nvim_set_keymap('n', '<leader>fa', ':lua require("telescope.builtin").live_grep({ default_text = vim.fn.expand("<cword>") })<CR>', { noremap = true, silent = true })
-require("aerial").setup({
-  -- optionally use on_attach to set keymaps when aerial has attached to a buffer
-  on_attach = function(bufnr)
-    -- Jump forwards/backwards with '{' and '}'
-    vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
-    vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
-  end,
-})
-vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
